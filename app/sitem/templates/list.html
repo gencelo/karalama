@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+        {% block content %}
+<div class="row">
+
+<div class="large-9 columns" role="content">
+<article>
+    <ul>
+                {% for makale in makaleler %}
+            <h3> <a href="/{{ makale.slug }}">   <div class="title">{{ makale.baslik }}</div></a></h3>
+              <h6>  <div class="time">{{ makale.tarih }}</div></h6>
+                <p><div class="body">{{ makale.yazi | slice:":350"  }}  <a href="/{{ makale.slug }}">  | Devamını oku ...</a></div></p>
+
+                <hr width=”100%” color=”#FFFFFF” size=3>
+                {% endfor %}
+          </ul></article>
+
+
+
+        {% include "paginator.html" %}
+
+
+        </div>
+    <div class="large-3 columns">
+                {% include "panel.html" %}
+        </div>
+</div>
+
+        {% endblock %}

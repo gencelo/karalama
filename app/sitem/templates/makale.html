@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+        {% block content %}
+<div class="row">
+
+<div class="large-9 columns" role="content">
+
+    
+              
+          <h3>  <div style="color:blue">  {{ makalem.baslik }}</div></h3>
+
+             <p>   <div style="color:red"><h6>  {{ makalem.tarih }}</h6></div></p>
+               <p> <div class="body"><h5>{{ makalem.yazi }}</h5> </div></p>
+
+                    </div>
+
+
+
+        <div class="large-3 columns right">
+                {% include "panel.html" %}
+            </div>
+</div>
+        {% endblock %}

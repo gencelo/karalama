@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head> <title>{% block title %}Blogum{% endblock %}</title>
+    {% load staticfiles %}
+        <link href="{% static  'css/foundation.min.css' %}" rel="stylesheet">
+        <link href="{% static   'css/normalize.css' %}" rel="stylesheet">
+
+</head>
+
+<body>
+
+
+ <aside class="large-12 columns">
+     <div class="panel">
+<h5>Kategoriler</h5>
+             {% if kategoriler %}
+
+<ul class="side-nav">
+    {% for kategori in kategoriler %}
+<li><a href="/{{ kategori.slug }}/">{{ kategori.kategori }}</a> </li>
+     {% endfor %}
+</ul>
+{% endif %}
+
+     </div>
+<div class="panel show-for-large-up">
+<h5>Reklam alanı</h5>
+<img src="http://www.koklearimplantdernegi.org.tr/reklam_yan.gif"></img>
+</div>
+           <div class="hide-for-large-up">
+
+                  <div class="panel">
+
+         <p > Mobile Reklam Alanı </p>
+     </div></div>
+ </aside>
+</body>
+</html>

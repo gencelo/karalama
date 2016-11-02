@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="tr" lang="tr">
+<head> <title>{% block title %}Tlog{% endblock %}</title>
+    {% load staticfiles %}
+        <link href="{% static  'css/foundation.min.css' %}" rel="stylesheet">
+        <link href="{% static   'css/normalize.css' %}" rel="stylesheet">
+
+</head>
+
+<body>
+    <div id="sidebar"> {% block sidebar %} {% endblock %} </div>
+    <div id="container">
+        <div id="menu">
+            {% block nav-global %}
+
+
+<div class="row">
+<div class="large-12 columns">
+<div class="nav-bar right">
+        <ul class="button-group">
+                <li><a href="{% url 'makale_views' %}" class="button">Anasayfa</a></li>
+               <li> <a href= "#" class="button">Hakkında</a></li>
+               <li><a href="#" class="button">Soru & Cevap</a></li>
+                <li><a href="#" class="button">İletişim</a></li>
+</ul>
+</div>
+           <a href="/">  <h1>Tlog <small>Türkçe açık kaynak kodlu blog </small></h1></a>
+              </div>
+
+    <hr/>
+</div></div>
+            {% endblock %}
+
+        </div>
+
+        <div id="content">
+            {% block content %}{% endblock %}
+        </div>
+    </div>
+
+<footer class="row">
+<div class="large-12 columns">
+<hr/>
+<div class="row">
+<div class="large-6 columns">
+<p>&copy; Oğuzhan GENÇEL.</p>
+</div>
+    <div class="large-6 columns">
+        <div class="inline-list right">
+            {% if user.is_staff %}
+                <li> <span class=" Radius Secondary Label "><a href="{% url 'admin:index' %}" >Admin</a></span></li>
+            <li> | </li>
+               <li>  <span class=" Radius Secondary Label "><a href="{% url 'admin:blog_makale_add' %}" >Yazi Ekle</a></span></li>
+                {% endif %}
+
+        </div>
+    </div>
+
+</div>
+</div>
+</footer>
+</body>
+</html>

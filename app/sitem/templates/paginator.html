@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head> <title>{% block title %}Blogum{% endblock %}</title>
+    {% load staticfiles %}
+        <link href="{% static  'css/foundation.min.css' %}" rel="stylesheet">
+        <link href="{% static   'css/normalize.css' %}" rel="stylesheet">
+
+</head>
+
+<body>
+<!-- Next/Prev page links  -->
+        <div class="large-7 large-offset-4 columns">
+        {% if makaleler.object_list and makaleler.paginator.num_pages > 1 %}
+        <div class="pagination" style="margin-top: 20px; margin-left: -20px; ">
+            <ul class="pagination">
+                <li class="arrow "><a href="?page=1">&laquo;</a></li>
+                {% if makaleler.has_previous %}
+                <li>    <a href= "?page={{ makaleler.previous_page_number }}">  {{ makaleler.previous_page_number }} </a></li>
+                {% endif %}
+
+               <li class="current"> <a href="#">   {{ makaleler.number }}</a></li>
+
+                {% if makaleler.has_next %}
+                <li>    <a href="?page={{ makaleler.next_page_number }}"> {{ makaleler.next_page_number }}</a></li>
+
+                          <li class="arrow"><a href="?page={{  makaleler.paginator.num_pages }}">&raquo;</a></li>
+                {% endif %}
+
+        {% endif %}
+            </ul>
+
+        </div>
+    </div>
+
+</body>
+</html>
